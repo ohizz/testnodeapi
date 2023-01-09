@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 const routes = require('./routes/routes');
 require('dotenv').config();
 const URL = process.env.URL;
 
-app.use(express.json());
 app.use('/api', routes);
 
 mongoose.connect(URL);
