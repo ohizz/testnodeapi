@@ -7,7 +7,7 @@ const routes = require('./routes/routes');
 require('dotenv').config();
 const URL = process.env.URL;
 
-app.use('/api', routes);
+app.use('/api/', routes);
 
 mongoose.connect(URL);
 const db = mongoose.connection;
