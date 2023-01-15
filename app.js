@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Model = require('../models/models');
+const Model = require('./models/models');
 mongoose.set('strictQuery', false);
 const routes = require('./routes/routes');
 require('dotenv').config();
