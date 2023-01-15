@@ -8,7 +8,7 @@ require('dotenv').config();
 const URL = process.env.URL;
 const port = process.env.PORT || 3000;
 
-app.get('/api', routes);
+app.use('/api', routes);
 
 mongoose.connect(URL);
 const db = mongoose.connection;
