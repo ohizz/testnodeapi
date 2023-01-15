@@ -6,8 +6,9 @@ mongoose.set('strictQuery', false);
 const routes = require('./routes/routes');
 require('dotenv').config();
 const URL = process.env.URL;
+const port = process.env.PORT || 3000;
 
-app.use('/api/', routes);
+app.use('/api', routes);
 
 mongoose.connect(URL);
 const db = mongoose.connection;
@@ -21,6 +22,6 @@ db.once('connected', () => {
 })
 
 
-app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`)
+app.listen(port, () => {
+    console.log(`Server Started at ${port}`)
 })
