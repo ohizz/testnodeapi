@@ -20,11 +20,6 @@ db.once('connected', () => {
 
 const app = express();
 app.use(express.json());
-
-app.listen(port, () => {
-    console.log(`Server Started at ${port}`)
-})
-
 app.get('/', async(req,res) => {
     try{
         const data = await Model.find();
@@ -34,3 +29,7 @@ app.get('/', async(req,res) => {
         res.status(500).json({message: error.message})
     }
 });
+
+app.listen(port, () => {
+    console.log(`Server Started at ${port}`)
+})
