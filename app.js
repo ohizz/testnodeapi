@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const Model = require('./models/models');
 mongoose.set('strictQuery', false);
 const routes = require('./routes/routes');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const URL = process.env.URL;
 const port = process.env.PORT || 3000;
 
