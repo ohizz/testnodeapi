@@ -1,27 +1,30 @@
-require('dotenv').config();
-const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-const mongoString = process.env.URL;
+const Model = require('./models/models');
+mongoose.set('strictQuery', false);
+const routes = require('./routes/routes');
+const path = require('path');
+require('dotenv').config({ path: './.env'});
+const URL = process.env.URL;
+const port = process.env.PORT || 3000;
 
-mongoose.connect(mongoString);
-const database = mongoose.connection;
+mongoose.connect(URL);
+const db = mongoose.connection;
 
-database.on('error', (error) => {
+db.on('error', (error) => {
     console.log(error)
 })
 
-database.once('connected', () => {
+db.once('connected', () => {
     console.log('Database Connected');
 })
+
 const app = express();
-app.use(cors())
+app.use(cors());
 app.use(express.json());
-
-const routes = require('./routes/routes');
-
 app.use('/api', routes)
 
-app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`)
+
+app.listen(port, () => {
+    console.log(`Server Started at ${port}`)
 })
