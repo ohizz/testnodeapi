@@ -4,6 +4,7 @@ const Model = require('./models/models');
 mongoose.set('strictQuery', false);
 const routes = require('./routes/routes');
 const path = require('path');
+const cors = require('cors');
 require('dotenv').config({ path: './.env'});
 const URL = process.env.URL;
 const port = process.env.PORT || 3000;
