@@ -7,7 +7,6 @@ const path = require('path');
 const cors = require('cors');
 require('dotenv').config({ path: './.env'});
 const URL = process.env.URL;
-const port = process.env.PORT || 3000;
 
 mongoose.connect(URL);
 const db = mongoose.connection;
@@ -26,6 +25,6 @@ app.use(express.json());
 app.use('/api', routes)
 
 
-app.listen(port, () => {
-    console.log(`Server Started at ${port}`)
+app.listen(3000, () => {
+    console.log(`Server Started at ${3000}`)
 })
