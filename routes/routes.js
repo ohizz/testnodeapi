@@ -17,18 +17,18 @@ router.post('/post', async (req, res) => {
         res.status(200).json(dataToSave)
     }
     catch (error) {
-        res.status(400).json({message: error.message})
+        res.status(400).json({ message: error.message })
     }
 })
 
 
-router.get('/', async (req, res) => {
-    try{
+router.get('/getAll', async (req, res) => {
+    try {
         const data = await Model.find();
-        res.status(200).json(data)
+        res.json(data)
     }
-    catch(error){
-        res.status(500).json({message: error.message})
+    catch (error) {
+        res.status(500).json({ message: error.message })
     }
 })
 
