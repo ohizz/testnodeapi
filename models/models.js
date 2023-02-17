@@ -17,6 +17,10 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
+    color: {
+        required: true,
+        type: String
+    },
     year: {
         required: true,
         type: Number
